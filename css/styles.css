@@ -2,7 +2,10 @@ body {
     font-family: Arial, sans-serif;
 }
 .calculator {
-    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    box-sizing: border-box;
     margin: 0 auto;
     border: 1px solid #ccc;
     padding: 20px;
@@ -16,6 +19,7 @@ input[type="text"] {
 }
 input[type="button"] {
     width: 45px;
+    flex-grow: 1;
     height: 45px;
     margin: 5px;
     font-size: 18px;
