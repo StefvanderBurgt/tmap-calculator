@@ -1,26 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    font-weight: 600;
+    font-family: 'Ubuntu', sans-serif;
 }
+   
 .calculator {
-    display: flex;
-    flex-wrap: wrap;
     max-width: 300px;
+    min-width: 300px;
     box-sizing: border-box;
     margin: 0 auto;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 16px;
+    border-radius: 24px;
+    background-color: #0070Ad;
+}
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: rgba(43, 10, 61, 0.5)
 }
 input[type="text"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 14px 12px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    background-color: #2b0a3d;
+    font-size: 24px;
+    color: white;
 }
 input[type="button"] {
-    width: 45px;
+    width: 20%;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 0px;
+    -webkit-box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.2);
     flex-grow: 1;
-    height: 45px;
-    margin: 5px;
     font-size: 18px;
+}
+input[type="button"]:active {
+    -webkit-box-shadow: inset 0px -50px 0px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0px -50px 0px 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0px -50px 0px 0px rgba(0,0,0,0.2);
+}
+input[type="button"].calculate {
+    background-color: #f53b53;
+    color: white;
+}
+input[type="button"].delete {
+    background-color: #12abdb;
+    color: white;
 }
