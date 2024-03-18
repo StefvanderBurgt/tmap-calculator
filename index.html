@@ -3,93 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
 <title>JavaScript Calculator</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    .calculator {
-        width: 300px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-    input[type="button"] {
-        width: 45px;
-        height: 45px;
-        margin: 5px;
-        font-size: 18px;
-    }
-    #message {
-        margin-top: 10px;
-        color: #ff0000;
-        font-size: 14px;
-    }
-</style>
 </head>
 <body>
 
 <div class="calculator">
     <input type="text" id="display" disabled>
-    <br>
-    <input type="button" value="7" onclick="appendToDisplay('7')">
-    <input type="button" value="8" onclick="appendToDisplay('8')">
-    <input type="button" value="9" onclick="appendToDisplay('9')">
-    <input type="button" value="/" onclick="appendToDisplay('/')">
-    <br>
-    <input type="button" value="4" onclick="appendToDisplay('4')">
-    <input type="button" value="5" onclick="appendToDisplay('5')">
-    <input type="button" value="6" onclick="appendToDisplay('6')">
-    <input type="button" value="*" onclick="appendToDisplay('*')">
-    <br>
-    <input type="button" value="1" onclick="appendToDisplay('1')">
-    <input type="button" value="2" onclick="appendToDisplay('2')">
-    <input type="button" value="3" onclick="appendToDisplay('3')">
-    <input type="button" value="-" onclick="appendToDisplay('-')">
-    <br>
-    <input type="button" value="0" onclick="appendToDisplay('0')">
-    <input type="button" value="." onclick="appendToDisplay('.')">
-    <input type="button" value="=" onclick="calculate()">
-    <input type="button" value="+" onclick="appendToDisplay('+')">
-    <br>
-    <input type="button" value="C" onclick="clearDisplay()">
-    <div id="message"></div>
+    <div class="buttons">
+        <input type="button" value="7" onclick="appendToDisplay('7')">
+        <input type="button" value="8" onclick="appendToDisplay('8')">
+        <input type="button" value="9" onclick="appendToDisplay('9')">
+        <input type="button" class="delete" value="DEL" onclick="backspace()">
+        <input type="button" value="4" onclick="appendToDisplay('4')">
+        <input type="button" value="5" onclick="appendToDisplay('5')">
+        <input type="button" value="6" onclick="appendToDisplay('6')">
+        <input type="button" value="+" onclick="appendToDisplay('+')">
+        <input type="button" value="1" onclick="appendToDisplay('1')">
+        <input type="button" value="2" onclick="appendToDisplay('2')">
+        <input type="button" value="3" onclick="appendToDisplay('3')">
+        <input type="button" value="-" onclick="appendToDisplay('-')">
+        <input type="button" value="." onclick="appendToDisplay('.')">
+        <input type="button" value="0" onclick="appendToDisplay('0')">
+        <input type="button" value="/" onclick="appendToDisplay('/')">
+        <input type="button" value="*" onclick="appendToDisplay('*')">
+        <input type="button" class="delete" value="C" onclick="clearDisplay()">
+        <input type="button" class="calculate" value="=" onclick="calculate()">
+    </div>
 </div>
 
-<script>
-    function appendToDisplay(value) {
-        document.getElementById('display').value += value;
-    }
-
-    function clearDisplay() {
-        document.getElementById('display').value = '';
-    }
-
-    function preprocessExpression(expression) {
-        var processedExpression = expression.replace(/(\+{2,}|-{2,}|\/{2,}|\*{2,})/g, (match) => match.charAt(0));
-        if (expression !== processedExpression) {
-            document.getElementById('message').innerText = "Some operators were removed due to multiple occurrences. Please review your expression.";
-        }
-        return processedExpression;
-    }
-
-    function calculate() {
-        var expression = document.getElementById('display').value;
-        expression = preprocessExpression(expression);
-        var result = eval(expression);
-        if (result > 100) {
-            result += ' 🤡';
-        }
-        document.getElementById('display').value = result;
-    }
-</script>
+<script src="/js/scripts.js"></script>
 
 </body>
 </html>
