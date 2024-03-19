@@ -13,9 +13,13 @@ function backspace() {
 function preprocessExpression(expression) {
     var processedExpression = expression.replace(/(\+{2,}|-{2,}|\/{2,}|\*{2,})/g, (match) => match.charAt(0));
     if (expression !== processedExpression) {
-        document.getElementById('message').innerText = "Some operators were removed due to multiple occurrences. Please review your expression.";
+        document.getElementById('message').className = "active";
     }
     return processedExpression;
+}
+function removeMessage() {
+    var message = document.getElementById('message');
+    message.classList.remove('active');
 }
 
 function calculate() {
