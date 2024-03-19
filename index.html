@@ -33,7 +33,7 @@
         <input type="button" class="delete" value="C" onclick="clearDisplay()">
         <input type="button" class="calculate" value="=" onclick="calculate()">
     </div>
-    <div id="message"></div>
+    <div id="message">Some operators were removed due to multiple occurrences. Only the first one is used in the calculation. <span id="close" onclick="removeMessage()">x</span> </div>
 </div>
 
 <script src="./js/scripts.js"></script>
