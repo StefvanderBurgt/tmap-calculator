@@ -12,11 +12,24 @@ function backspace() {
 
 function preprocessExpression(expression) {
     var processedExpression = expression.replace(/(\+{2,}|-{2,}|\/{2,}|\*{2,})/g, (match) => match.charAt(0));
+    
+    // New logic to handle multiple divisions: only execute up to the first division
+    var divisionIndex = processedExpression.indexOf('/');
+    if (divisionIndex !== -1) {
+        // Check if there is another division after the first one
+        var secondDivisionIndex = processedExpression.indexOf('/', divisionIndex + 1);
+        if (secondDivisionIndex !== -1) {
+            // If there's a second division, cut the expression up to the first division
+            processedExpression = processedExpression.substring(0, secondDivisionIndex);
+        }
+    }
+    
     if (expression !== processedExpression) {
         document.getElementById('message').className = "active";
     }
     return processedExpression;
 }
+
 function removeMessage() {
     var message = document.getElementById('message');
     message.classList.remove('active');
