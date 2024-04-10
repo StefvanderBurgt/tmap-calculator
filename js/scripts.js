@@ -38,9 +38,16 @@ function removeMessage() {
 function calculate() {
     var expression = document.getElementById('display').value;
     expression = preprocessExpression(expression);
-    var result = eval(expression);
-    if (result > 100) {
-        result += ' 🤡';
+
+    try {
+        var result = math.evaluate(expression);
+
+        if (result > 100) {
+            result += ' 🤡';
+        }
+        
+        document.getElementById('display').value = result;
+    } catch (error) {
+        console.error("Error evaluating expression:", error);
     }
-    document.getElementById('display').value = result;
 }
