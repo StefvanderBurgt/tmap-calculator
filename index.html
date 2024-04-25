@@ -14,24 +14,24 @@
 <div class="calculator">
     <input type="text" id="display" disabled>
     <div class="buttons">
-        <input type="button" value="7" onclick="appendToDisplay('7')">
-        <input type="button" value="8" onclick="appendToDisplay('8')">
-        <input type="button" value="9" onclick="appendToDisplay('9')">
-        <input type="button" class="delete" value="DEL" onclick="backspace()">
-        <input type="button" value="4" onclick="appendToDisplay('4')">
-        <input type="button" value="5" onclick="appendToDisplay('5')">
-        <input type="button" value="6" onclick="appendToDisplay('6')">
-        <input type="button" value="+" onclick="appendToDisplay('+')">
-        <input type="button" value="1" onclick="appendToDisplay('1')">
-        <input type="button" value="2" onclick="appendToDisplay('2')">
-        <input type="button" value="3" onclick="appendToDisplay('3')">
-        <input type="button" value="-" onclick="appendToDisplay('-')">
-        <input type="button" value="." onclick="appendToDisplay('.')">
-        <input type="button" value="0" onclick="appendToDisplay('0')">
-        <input type="button" value="/" onclick="appendToDisplay('/')">
-        <input type="button" value="*" onclick="appendToDisplay('*')">
-        <input type="button" class="delete" value="C" onclick="clearDisplay();removeMessage()">
-        <input type="button" class="calculate" value="=" onclick="calculate()">
+        <input class="operator" type="button" value="7">
+        <input class="operator" type="button" value="8">
+        <input class="operator" type="button" value="9">
+        <input type="button" id="delete" value="DEL">
+        <input class="operator" type="button" value="4">
+        <input class="operator" type="button" value="5">
+        <input class="operator" type="button" value="6">
+        <input class="operator" type="button" value="+">
+        <input class="operator" type="button" value="1">
+        <input class="operator" type="button" value="2">
+        <input class="operator" type="button" value="3">
+        <input class="operator" type="button" value="-">
+        <input class="operator" type="button" value=".">
+        <input class="operator" type="button" value="0">
+        <input class="operator" type="button" value="/">
+        <input class="operator" type="button" value="*">
+        <input type="button" id="clear" value="C">
+        <input type="button" id="calculate" value="=">
     </div>
     <div id="message">Some operators were removed due to multiple occurrences. Only the first one is used in the calculation. <span id="close" onclick="removeMessage()">x</span> </div>
 </div>
