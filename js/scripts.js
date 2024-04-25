@@ -50,4 +50,33 @@ function calculate() {
     } catch (error) {
         console.error("Error evaluating expression:", error);
     }
+    document.getElementById('display').value = result;
 }
+
+// Add event listeners to buttons
+
+window.onload = function() {
+    var operators = document.getElementsByClassName('operator');
+
+    for (var i = 0; i < operators.length; i++) {
+        operators[i].addEventListener('click', function() {
+            appendToDisplay(this.value);
+        });
+    }
+
+    document.getElementById('clear').addEventListener('click', function() {
+        clearDisplay();
+    });
+
+    document.getElementById('delete').addEventListener('click', function() {
+        backspace();
+    });
+
+    document.getElementById('clear').addEventListener('click', function() {
+        removeMessage();
+    });
+
+    document.getElementById('calculate').addEventListener('click', function() {
+        calculate();
+    });
+};
